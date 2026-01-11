@@ -102,7 +102,6 @@ const SmsTerms: React.FC = () => {
           </p>
 
           <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            {/* Logo placeholder */}
             <div className="flex-shrink-0 w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-[#0D2C5C] font-bold text-xl">
               SG
             </div>
