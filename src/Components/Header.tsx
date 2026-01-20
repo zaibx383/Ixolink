@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../assets/logo.png';
 
 const Header: React.FC = () => {
   return (
@@ -7,7 +6,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto">
         <div className="flex items-center">
         <img
-  src={logo}
+  src="/Logo.png"
   alt="Speedy Quote Auto"
   className="
     h-10 w-auto
