@@ -63,7 +63,7 @@ const TermsAndConditions: React.FC = () => {
           If you have any questions about these Terms, please contact us at:
         </p>
         <p>
-          Email: info@speedyquote.com<br />
+          Email: info@speedyquoteauto.org<br />
   
         </p>
       </section>

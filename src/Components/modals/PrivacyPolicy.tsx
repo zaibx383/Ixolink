@@ -79,7 +79,7 @@ const PrivacyPolicy: React.FC = () => {
           If you have any questions or concerns about this Privacy Policy, please contact us at:
         </p>
         <p>
-          Email: info@speedyquote.com<br />
+          Email: info@speedyquoteauto.org<br />
         </p>
       </section>
     </div>

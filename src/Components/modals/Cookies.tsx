@@ -61,7 +61,7 @@ const Cookies: React.FC = () => {
       <section className="space-y-4">
         <h2 className="text-xl font-bold text-[#1D184E]">Contact Us</h2>
         <p>
-          If you have any questions about our use of cookies or other technologies, please email us at info@speedyquote.com.
+          If you have any questions about our use of cookies or other technologies, please email us at info@speedyquoteauto.org.
         </p>
        
       </section>

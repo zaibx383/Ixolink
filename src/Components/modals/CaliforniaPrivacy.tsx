@@ -64,8 +64,8 @@ const CaliforniaPrivacy: React.FC = () => {
         </p>
         <ul className="list-disc pl-6 space-y-2">
           <li>Calling us at: 1-800-555-CCPA</li>
-          <li>Emailing us at: ccpa@speedyquote.com</li>
-          <li>Visiting our website: www.speedyquote.com/ccpa-request</li>
+          <li>Emailing us at: ccpa@speedyquoteauto.org</li>
+          <li>Visiting our website: www.speedyquoteauto.org/ccpa-request</li>
         </ul>
         <p>
           Only you, or a person registered with the California Secretary of State that you authorize to act on your behalf, may make a verifiable consumer request related to your personal information.
@@ -88,7 +88,7 @@ const CaliforniaPrivacy: React.FC = () => {
           If you have any questions or comments about this notice, the ways in which we collect and use your information, or your choices and rights regarding such use, please contact us at:
         </p>
         <p>
-          Website: www.speedyquote.com
+          Website: www.speedyquoteauto.org
         </p>
       </section>
     </div>

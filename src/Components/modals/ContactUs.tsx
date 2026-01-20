@@ -179,9 +179,9 @@ const ContactUs: React.FC = () => {
             <div>
               <h3 className="font-bold text-gray-700">Email Addresses</h3>
               <p className="text-gray-600">
-                Info: info@speedyquote.com<br />
-                Support: support@speedyquote.com<br />
-                Claims: claims@speedyquote.com
+                Info: info@speedyquoteauto.org<br />
+                Support: support@speedyquoteauto.org<br />
+                Claims: claims@speedyquoteauto.org
               </p>
             </div>
           </div>
