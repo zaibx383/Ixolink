@@ -1,14 +1,17 @@
-// src/pages/HomePage.tsx
 import React from 'react';
-import Navbar from '../Components/Navbar';
-
-import Footer from '../Components/Footer';
+import Navbar from '../Components/Header';
 import HeroSection from '../Components/HeroSection';
-import BenefitsSection from '../Components/BenefitsSection';
+import BenefitsSection from '../Components/CTASection';
 import TestimonialsSection from '../Components/TestimonialsSection';
-import CookieConsent from '../Components/CookieConsent';
+import CookieConsent from '../Components/modals/Cookies';
+import Footer from '../Components/Footer';
+import { ModalType } from '../App'; 
 
-const HomePage: React.FC = () => {
+interface HomePageProps {
+  setActiveModal: (modal: ModalType) => void;
+}
+
+const HomePage: React.FC<HomePageProps> = ({ setActiveModal }) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -17,8 +20,7 @@ const HomePage: React.FC = () => {
         <BenefitsSection />
         <TestimonialsSection />
       </main>
-      <Footer />
-      <CookieConsent />
+      <Footer setActiveModal={setActiveModal} />
     </div>
   );
 };
