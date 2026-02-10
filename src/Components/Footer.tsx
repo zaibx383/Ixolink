@@ -1,126 +1,118 @@
-import React from 'react';
-import { ModalType } from '../App';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Linkedin, Twitter, Facebook } from "lucide-react";
 
-interface FooterProps {
-  setActiveModal: (modal: ModalType) => void;
-}
-
-const Footer: React.FC<FooterProps> = ({ setActiveModal }) => {
+const Footer = () => {
   return (
-    <footer className="bg-gray-100 pt-12 pb-6">
-      <div className="container mx-auto px-4">
+    <footer className="bg-indigo-900 text-white">
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-        <div className="flex flex-col md:flex-row justify-between pb-8 border-b border-gray-300">
+          {/* Column 1 - Logo & About */}
+          <div>
+            <Link to="/" className="inline-block mb-6">
+              <img
+                src="/logo-footer.jpeg"
+                alt="Ixolink Logo"
+                className="h-10 w-auto object-contain"
+              />
+            </Link>
 
-          {/* About */}
-          <div className="mb-8 md:mb-0">
-            <h3 className="text-xl font-bold text-[#1D184E] mb-4">
-              SPEEDY QUOTE AUTO
-            </h3>
-
-            <p className="text-gray-600 max-w-xs">
-              Get personalized auto insurance quotes quickly and easily.
-              Save money while getting the coverage you need.
+            <p className="text-indigo-200 text-sm leading-relaxed mb-6">
+              Data driven agency focused on building reliable connections between
+              businesses and their audiences through verified lead generation and
+              intelligent web data solutions.
             </p>
+
+            <div className="flex space-x-4">
+              <SocialLink href="#" icon={<Linkedin size={18} />} />
+              <SocialLink href="#" icon={<Twitter size={18} />} />
+              <SocialLink href="#" icon={<Facebook size={18} />} />
+            </div>
           </div>
 
-          {/* Links */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+          {/* Column 2 - Quick Links */}
+          <div>
+            <h4 className="text-base font-bold mb-5">Quick Links</h4>
+            <ul className="space-y-3">
+              <FooterLink to="/">Home</FooterLink>
+              <FooterLink to="/about">About Us</FooterLink>
+              <FooterLink to="/services">Services</FooterLink>
+              <FooterLink to="/testimonials">Testimonials</FooterLink>
+            </ul>
+          </div>
 
-            {/* Contact */}
-            <div>
-              <h4 className="text-lg font-bold text-[#1D184E] mb-4">
-                Get in Touch
-              </h4>
+          {/* Column 3 - Services */}
+          <div>
+            <h4 className="text-base font-bold mb-5">Services</h4>
+            <ul className="space-y-3">
+              <FooterLink to="/services">B2B Lead Generation</FooterLink>
+              <FooterLink to="/services">B2C Lead Generation</FooterLink>
+              <FooterLink to="/services">Web Data Solutions</FooterLink>
+              <FooterLink to="/services">Data Verification</FooterLink>
+            </ul>
+          </div>
 
-              <ul className="space-y-3">
-
-                {/* Phone */}
-                <li>
-                  <a
-                    href="tel:+18889759214"
-                    className="text-gray-600 hover:text-[#F26624] flex items-center"
-                  >
-                    <svg
-                      className="w-4 h-4 mr-2"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M2.003 5.884l3.146-.393a1 1 0 01.95.553l1.516 3.032a1 1 0 01-.286 1.26l-1.27 1.27a11.042 11.042 0 005.516 5.516l1.27-1.27a1 1 0 011.26-.286l3.032 1.516a1 1 0 01.553.95l-.393 3.146A1 1 0 0117.657 22A19.657 19.657 0 012 4.343a1 1 0 01.003-1.459z" />
-                    </svg>
-
-                    +1 888-975-9214
-                  </a>
-                </li>
-
-                {/* Email */}
-                <li>
-                  <a
-                    href="mailto:info@speedyquoteauto.org"
-                    className="text-gray-600 hover:text-[#F26624] flex items-center"
-                  >
-                    <svg
-                      className="w-4 h-4 mr-2"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-
-                    info@speedyquoteauto.org
-                  </a>
-                </li>
-
-              </ul>
-            </div>
-
+          {/* Column 4 - Contact */}
+          <div>
+            <h4 className="text-base font-bold mb-5">Contact</h4>
+            <ul className="space-y-3 text-indigo-200 text-sm">
+              <li>contact@ixolink.com</li>
+              <li>+1 (555) 123-4567</li>
+              <li>Global Services</li>
+            </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 text-center md:flex md:justify-between md:items-center">
-
-          <p className="text-gray-600 mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Speedy Quote Auto. All rights reserved.
+        <div className="mt-12 pt-6 border-t border-indigo-800 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-indigo-200 text-sm">
+            &copy; 2026 Ixolink. All rights reserved.
           </p>
 
-          <div className="flex flex-wrap justify-center space-x-4">
-
-            <button
-              onClick={() => setActiveModal('privacy')}
-              className="text-gray-600 hover:text-[#F26624] text-sm"
+          <div className="mt-4 md:mt-0 flex space-x-6">
+            <Link
+              to="#"
+              className="text-indigo-200 hover:text-white text-sm transition-colors duration-300"
             >
               Privacy Policy
-            </button>
+            </Link>
 
-            <button
-              onClick={() => setActiveModal('terms')}
-              className="text-gray-600 hover:text-[#F26624] text-sm"
+            <Link
+              to="#"
+              className="text-indigo-200 hover:text-white text-sm transition-colors duration-300"
             >
-              Terms and Conditions
-            </button>
-
-            <button
-              onClick={() => setActiveModal('cookies')}
-              className="text-gray-600 hover:text-[#F26624] text-sm"
-            >
-              Cookies
-            </button>
-
-            <button
-              onClick={() => setActiveModal('california')}
-              className="text-gray-600 hover:text-[#F26624] text-sm"
-            >
-              California Consumer Privacy
-            </button>
-
+              Terms of Service
+            </Link>
           </div>
         </div>
-
       </div>
     </footer>
   );
 };
+
+/* Social Icon Link */
+const SocialLink = ({ href, icon }) => (
+  <a
+    href={href}
+    className="w-10 h-10 bg-indigo-800 hover:bg-purple-600 rounded-full flex items-center justify-center transition-colors duration-300"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {icon}
+  </a>
+);
+
+/* Footer Navigation Link */
+const FooterLink = ({ to, children }) => (
+  <li>
+    <Link
+      to={to}
+      className="text-indigo-200 hover:text-white text-sm transition-colors duration-300"
+    >
+      {children}
+    </Link>
+  </li>
+);
 
 export default Footer;

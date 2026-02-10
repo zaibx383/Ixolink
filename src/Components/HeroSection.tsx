@@ -1,134 +1,74 @@
 import React from 'react';
-import QuoteForm from './QuoteForm';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
-const HeroSection: React.FC = () => {
+const Hero = () => {
   return (
-    <section
-      id="quote-form"
-      className="relative overflow-hidden bg-gray-100 py-12 md:py-16"
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center">
-          
-          {/* Left Content */}
-          <div className="md:w-1/2 mb-8 md:mb-0">
-            
-            <h1 className="text-3xl md:text-5xl font-bold text-[#1D184E] mb-2">
-              Find the best deal on car insurance with unbeatable coverage!
+    <section className="relative h-screen w-full overflow-hidden">
+
+      {/* Background Video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="https://www.pexels.com/download/video/31679785/"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+
+      {/* Gradient Overlay for Readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80 z-10" />
+
+      {/* Content */}
+      <div className="relative z-20 h-full flex items-center">
+        <div className="container mx-auto px-6">
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl text-left"
+          >
+
+            {/* Heading */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 drop-shadow-xl">
+              Data Driven Leads That Power{' '}
+              <span className="text-purple-400">
+                Business Growth
+              </span>
             </h1>
 
-            {/* Phone Number */}
-            <p className="text-lg md:text-xl font-semibold text-[#F26624] mb-6">
-              Call Now:{' '}
-              <a
-                href="tel:+18889759214"
-                className="underline hover:text-[#1D184E] transition-colors"
-              >
-                +1 888-975-9214
-              </a>
+            {/* Sub Text */}
+            <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-xl leading-relaxed">
+              Accurate B2B and B2C lead generation powered by reliable data and smart automation.
             </p>
 
-            <div className="space-y-4 text-gray-700">
-              
-              {/* Item 1 */}
-              <div className="flex items-start">
-                <svg
-                  className="w-5 h-5 text-[#F26624] mt-1 mr-3"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <p>Personalized Auto Coverage</p>
-              </div>
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-5">
 
-              {/* Item 2 */}
-              <div className="flex items-start">
-                <svg
-                  className="w-5 h-5 text-[#F26624] mt-1 mr-3"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <p>Complete Coverage Analysis</p>
-              </div>
+              <Link
+                to="/contact"
+                className="px-8 py-4 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-semibold shadow-lg hover:shadow-purple-500/40 transition-all duration-300"
+              >
+                Start Growing
+              </Link>
 
-              {/* Item 3 */}
-              <div className="flex items-start">
-                <svg
-                  className="w-5 h-5 text-[#F26624] mt-1 mr-3"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <p>Expert Insurance Guide</p>
-              </div>
-
-              {/* Item 4 */}
-              <div className="flex items-start">
-                <svg
-                  className="w-5 h-5 text-[#F26624] mt-1 mr-3"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <p>Honest, Transparent Policies</p>
-              </div>
-
-              {/* Item 5 */}
-              <div className="flex items-start">
-                <svg
-                  className="w-5 h-5 text-[#F26624] mt-1 mr-3"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <p>Fast, Easy Claims</p>
-              </div>
+              <Link
+                to="/about"
+                className="px-8 py-4 rounded-full border-2 border-white/40 hover:bg-white/10 text-white font-semibold transition-all duration-300"
+              >
+                Learn More
+              </Link>
 
             </div>
-          </div>
 
-          {/* Right Form */}
-          <div className="md:w-1/2 md:pl-12">
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <QuoteForm />
-            </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>
 
-      {/* Background Decorative Elements */}
-      <div className="hidden md:block absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-r from-[#ED2228] to-[#F26624] opacity-10 rounded-full -mr-32 -mb-32" />
-
-      <div className="hidden md:block absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-[#1D184E] to-[#08509E] opacity-10 rounded-full -ml-48 -mt-48" />
     </section>
   );
 };
 
-export default HeroSection;
+export default Hero;

@@ -1,48 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import AboutPage from './pages/AboutPage';
+import ServicesPage from './pages/ServicesPage';
+import TestimonialsPage from './pages/TestimonialsPage';
+import ContactPage from './pages/ContactPage';
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer';
 import HomePage from './pages/HomePage';
-import PrivacyPolicy from './Components/modals/PrivacyPolicy';
-import TermsAndConditions from './Components/modals/TermsAndConditions';
-import ContactUs from './Components/modals/ContactUs';
-import Cookies from './Components/modals/Cookies';
-import CaliforniaPrivacy from './Components/modals/CaliforniaPrivacy';
-import Modal from './Components/Modal';
 
+// ScrollToTop component to handle scroll behavior
+function ScrollToTop() {
+  const location = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
-export type ModalType = '' | 'privacy' | 'terms' | 'contact' | 'cookies' | 'california';
+  return null;
+}
 
-const App: React.FC = () => {
-  const [activeModal, setActiveModal] = useState<ModalType>('');
-
-  const closeModal = () => setActiveModal('');
-
-  const renderModalContent = () => {
-    switch (activeModal) {
-      case 'privacy':
-        return <PrivacyPolicy />;
-      case 'terms':
-        return <TermsAndConditions />;
-      case 'contact':
-        return <ContactUs />;
-      case 'cookies':
-        return <Cookies />;
-      case 'california':
-        return <CaliforniaPrivacy />;
-      default:
-        return null;
-    }
-  };
-
+function App() {
   return (
-    <div className="font-tomato">
-      <HomePage setActiveModal={setActiveModal} />
-      
-      {activeModal && (
-        <Modal onClose={closeModal}>
-          {renderModalContent()}
-        </Modal>
-      )}
-    </div>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <ScrollToTop />
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/testimonials" element={<TestimonialsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
-};
+}
 
 export default App;
