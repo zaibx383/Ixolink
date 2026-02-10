@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Eye, Shield } from 'lucide-react';
 import Hero from '../Components/HeroSection';
-import SectionHeader from '../components/SectionHeader';
+import SectionHeader from '../Components/SectionHeader2';
 import ValueCard from '../Components/ValueCard';
 import ServiceCard from '../Components/ServiceCard';
 import ContactForm from '../Components/ContactForm';

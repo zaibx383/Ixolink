@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { Eye, Shield, Check } from 'lucide-react';
-import SectionHeader from '../components/SectionHeader';
+
 import ValueCard from '../Components/ValueCard';
+import SectionHeader from '../Components/SectionHeader2';
 
 const AboutPage = () => {
   return (

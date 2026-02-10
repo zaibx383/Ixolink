@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SectionHeader from '../components/SectionHeader';
+import SectionHeader from '../Components/SectionHeader2';
 import { Star, Quote, ArrowRight, Shield, Eye } from 'lucide-react';
 
 // Testimonial data

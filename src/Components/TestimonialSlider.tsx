@@ -32,16 +32,17 @@ const TestimonialSlider: React.FC = () => {
   
   // Autoplay functionality
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    
+    let interval: number;
+  
     if (autoplay) {
-      interval = setInterval(() => {
+      interval = window.setInterval(() => {
         setActiveIndex(prevIndex => (prevIndex + 1) % testimonials.length);
       }, 5000);
     }
-    
+  
     return () => clearInterval(interval);
   }, [autoplay]);
+  
   
   // Handle next and previous
   const handleNext = () => {

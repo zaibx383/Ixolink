@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SectionHeader from '../components/SectionHeader';
+import SectionHeader from '../Components/SectionHeader2';
 
 import { ArrowRight, CheckCircle, Clock, Users, BarChart2, Database } from 'lucide-react';
 import ServiceCard from '../Components/ServiceCard';

@@ -1,5 +1,5 @@
 import React from 'react';
-import SectionHeader from '../components/SectionHeader';
+import SectionHeader from '../Components/SectionHeader2';
 
 import { Mail, Phone, MapPin, Clock, CheckSquare } from 'lucide-react';
 import ContactForm from '../Components/ContactForm';
