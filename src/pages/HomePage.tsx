@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Eye, Shield } from 'lucide-react';
 import Hero from '../Components/HeroSection';
@@ -8,12 +7,18 @@ import ValueCard from '../Components/ValueCard';
 import ServiceCard from '../Components/ServiceCard';
 import ContactForm from '../Components/ContactForm';
 import TestimonialSlider from '../Components/TestimonialSlider';
+import ClientsSection from '../Components/ClientLogo';
+import AnimatedCaseStudies from '../Components/AnimatedCaseStudies';
+import FeatureSection from '../Components/FeatureSection';
 
 const HomePage = () => {
   return (
     <>
       {/* Hero Section */}
       <Hero />
+      
+      {/* Clients Section - Builds immediate credibility */}
+      <ClientsSection />
       
       {/* About Section */}
       <section className="py-20 bg-indigo-50">
@@ -121,30 +126,53 @@ const HomePage = () => {
               description="Ensure accuracy with our comprehensive data verification and validation processes."
             />
           </div>
+          
+          {/* Add a CTA button to encourage service inquiries */}
+          <div className="mt-12 text-center">
+            <a href="#contact" className="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              Discuss Your Project
+            </a>
+          </div>
         </div>
       </section>
       
-      {/* Testimonials Section */}
-      <section className="py-20 bg-white">
+      {/* Case Studies & Blog Section - strategically placed after services */}
+      
+      <section id="case-studies">
+        <AnimatedCaseStudies />
+      </section>
+      <section id="new">
+        <FeatureSection />
+      </section>
+      {/* Testimonials Section - reinforces social proof */}
+      <section className="py-20 bg-indigo-50" id="testimonials">
         <div className="container mx-auto px-6">
           <SectionHeader 
             label="Client Success"
             title="What Our Clients Say"
+            description="Don't just take our word for it - hear from businesses that have transformed their lead generation with Ixolink"
           />
           
           <TestimonialSlider />
         </div>
       </section>
       
-      {/* Contact Section */}
-      <section className="py-20 bg-indigo-50">
+      {/* Contact Section - clear call to action */}
+      <section className="py-20 bg-white" id="contact">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <SectionHeader
+            label="Get Started"
+            title="Ready to Transform Your Lead Generation?"
+            description="Take the first step toward data-driven growth by reaching out to our team today"
+            centered={true}
+          />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
             <div>
               <h2 className="text-3xl font-bold text-indigo-900 mb-4">Let's Connect</h2>
               <p className="text-gray-700 mb-10">
                 Ready to transform your lead generation? Get in touch with us today and discover how Ixolink can
-                help your business grow.
+                help your business grow with verified, high-quality leads and data solutions.
               </p>
               
               <div className="space-y-6">
@@ -181,6 +209,49 @@ const HomePage = () => {
             </div>
             
             <ContactForm />
+          </div>
+        </div>
+      </section>
+      
+      {/* FAQ Section - address common questions to reduce friction */}
+      <section className="py-20 bg-indigo-50">
+        <div className="container mx-auto px-6">
+          <SectionHeader
+            label="Common Questions"
+            title="Frequently Asked Questions"
+            description="Get answers to the most common questions about our lead generation services"
+          />
+          
+          <div className="max-w-3xl mx-auto space-y-6 mt-10">
+            {/* FAQ Item 1 */}
+            <div className="bg-white rounded-xl shadow-sm p-6 border border-purple-100">
+              <h3 className="text-xl font-bold text-indigo-900 mb-2">How do you ensure lead quality?</h3>
+              <p className="text-gray-700">
+                We implement a rigorous multi-step verification process including email validation, phone verification, and data enrichment to ensure every lead meets our high-quality standards before delivery.
+              </p>
+            </div>
+            
+            {/* FAQ Item 2 */}
+            <div className="bg-white rounded-xl shadow-sm p-6 border border-purple-100">
+              <h3 className="text-xl font-bold text-indigo-900 mb-2">What industries do you specialize in?</h3>
+              <p className="text-gray-700">
+                We provide lead generation services across multiple industries including technology, healthcare, finance, manufacturing, and professional services, with specialized expertise in B2B sectors.
+              </p>
+            </div>
+            
+            {/* FAQ Item 3 */}
+            <div className="bg-white rounded-xl shadow-sm p-6 border border-purple-100">
+              <h3 className="text-xl font-bold text-indigo-900 mb-2">How quickly can you deliver leads?</h3>
+              <p className="text-gray-700">
+                Turnaround times vary based on project scope and requirements, but we typically begin delivering verified leads within 7-14 days of project kickoff, with ongoing delivery schedules tailored to your needs.
+              </p>
+            </div>
+          </div>
+          
+          <div className="text-center mt-10">
+            <a href="#contact" className="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              Ask Us a Question
+            </a>
           </div>
         </div>
       </section>
