@@ -19,7 +19,10 @@ const HomePage = () => {
       
       {/* Clients Section - Builds immediate credibility */}
       <ClientsSection />
-      
+        
+      <section id="case-studies">
+        <AnimatedCaseStudies />
+      </section>
       {/* About Section */}
       <section className="py-20 bg-indigo-50">
         <div className="container mx-auto px-6">
