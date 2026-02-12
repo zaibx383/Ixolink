@@ -1,68 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Eye, Shield } from 'lucide-react';
+
+// Component Imports
 import Hero from '../Components/HeroSection';
 import SectionHeader from '../Components/SectionHeader2';
-import ValueCard from '../Components/ValueCard';
-import ServiceCard from '../Components/ServiceCard';
-import ContactForm from '../Components/ContactForm';
-import TestimonialSlider from '../Components/TestimonialSlider';
 import ClientsSection from '../Components/ClientLogo';
-import AnimatedCaseStudies from '../Components/AnimatedCaseStudies';
+import ShowcaseSection from '../Components/ShowcaseSection';
 import FeatureSection from '../Components/FeatureSection';
+import ServiceCard from '../Components/ServiceCard';
+import AnimatedCaseStudies from '../Components/AnimatedCaseStudies';
+import TestimonialSlider from '../Components/TestimonialSlider';
+import ContactForm from '../Components/ContactForm';
 
 const HomePage = () => {
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section - First impression & value proposition */}
       <Hero />
       
-      {/* Clients Section - Builds immediate credibility */}
+      {/* Clients Section - Immediate social proof to build credibility */}
       <ClientsSection />
-        
-      <section id="case-studies">
-        <AnimatedCaseStudies />
-      </section>
-      {/* About Section */}
-      <section className="py-20 bg-indigo-50">
-        <div className="container mx-auto px-6">
-          <SectionHeader 
-            label="Introduction"
-            title="Building Reliable Connections"
-            description="Ixolink is a data driven agency focused on building reliable connections between businesses and their audiences. We specialize in verified B2B and B2C lead generation and intelligent web data solutions."
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ValueCard 
-              icon="accuracy"
-              title="Accuracy First"
-              description="We prioritize precise, reliable, and verified data in every solution we deliver."
-            />
-            <ValueCard 
-              icon="transparency"
-              title="Transparency"
-              description="Our processes are clear, honest, and fully aligned with client expectations."
-            />
-            <ValueCard 
-              icon="data"
-              title="Data Driven Thinking"
-              description="Every decision is guided by insights, research, and analysis—not assumptions."
-            />
-            <ValueCard 
-              icon="scalability"
-              title="Scalability"
-              description="We build systems and solutions designed to grow with our clients' businesses."
-            />
-            <ValueCard 
-              icon="partnerships"
-              title="Long Term Partnerships"
-              description="We focus on sustainable growth, trust, and lasting client relationships."
-            />
-          </div>
-        </div>
-      </section>
       
-      {/* Mission & Vision Section */}
+      {/* Showcase Section - Immersive visual introduction to data solutions */}
+      <ShowcaseSection />
+      
+      {/* Mission & Vision Section - Brand purpose and value alignment */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -94,60 +57,55 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* Services Section */}
-      <section className="py-20 bg-indigo-50" id="services">
+      {/* Feature Section - What sets us apart with scroll animations */}
+      <section id="features">
+        <FeatureSection />
+      </section>
+
+      {/* Services Section - Core offerings */}
+      <section className="py-20 bg-white" id="services">
         <div className="container mx-auto px-6">
-          <SectionHeader 
-            label="What We Offer"
-            title="Our Services"
-            description="Comprehensive data solutions designed to drive your business forward"
-          />
+          <div className="mb-10">
+            <p className="text-sm font-medium text-teal-500 uppercase tracking-wider mb-2">OUR SERVICES</p>
+            <h2 className="text-4xl font-bold text-black mb-4">Transform Your Business</h2>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <ServiceCard 
-              number="01"
-              icon="b2b"
               title="B2B Lead Generation"
-              description="Verified business leads tailored to your target market. We connect you with decision-makers who matter."
+              image="https://pearllemonleads.com/wp-content/uploads/2025/08/B2C-Lead-Generation-Services-in-Singapore.webpp"
             />
             <ServiceCard 
-              number="02"
-              icon="b2c"
               title="B2C Lead Generation"
-              description="High-quality consumer leads that convert. Reach your ideal customers with precision targeting."
+              image="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1170&auto=format&fit=crop"
             />
             <ServiceCard 
-              number="03"
-              icon="web"
               title="Web Data Solutions"
-              description="Intelligent web scraping and data extraction services. Transform raw data into actionable insights."
+              image="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?q=80&w=1170&auto=format&fit=crop"
             />
             <ServiceCard 
-              number="04"
-              icon="verification"
               title="Data Verification"
-              description="Ensure accuracy with our comprehensive data verification and validation processes."
+              image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1170&auto=format&fit=crop"
             />
           </div>
           
-          {/* Add a CTA button to encourage service inquiries */}
-          <div className="mt-12 text-center">
-            <a href="#contact" className="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              Discuss Your Project
+          <div className="mt-10 text-center">
+            <a href="#" className="inline-flex items-center text-teal-500 hover:text-teal-600 transition-colors duration-300 border border-teal-500 hover:border-teal-600 rounded-full px-8 py-3 text-lg">
+              View More Services
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
             </a>
           </div>
         </div>
       </section>
       
-      {/* Case Studies & Blog Section - strategically placed after services */}
-      
+      {/* Case Studies Section - Proof of results with scroll animations */}
       <section id="case-studies">
         <AnimatedCaseStudies />
       </section>
-      <section id="new">
-        <FeatureSection />
-      </section>
-      {/* Testimonials Section - reinforces social proof */}
+      
+      {/* Testimonials Section - Social proof and credibility */}
       <section className="py-20 bg-indigo-50" id="testimonials">
         <div className="container mx-auto px-6">
           <SectionHeader 
@@ -160,8 +118,51 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* Contact Section - clear call to action */}
-      <section className="py-20 bg-white" id="contact">
+      {/* FAQ Section - Address common questions to reduce friction */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <SectionHeader
+            label="Common Questions"
+            title="Frequently Asked Questions"
+            description="Get answers to the most common questions about our lead generation services"
+          />
+          
+          <div className="max-w-3xl mx-auto space-y-6 mt-10">
+            {/* FAQ Item 1 */}
+            <div className="bg-indigo-50 rounded-xl shadow-sm p-6 border border-purple-100">
+              <h3 className="text-xl font-bold text-indigo-900 mb-2">How do you ensure lead quality?</h3>
+              <p className="text-gray-700">
+                We implement a rigorous multi-step verification process including email validation, phone verification, and data enrichment to ensure every lead meets our high-quality standards before delivery.
+              </p>
+            </div>
+            
+            {/* FAQ Item 2 */}
+            <div className="bg-indigo-50 rounded-xl shadow-sm p-6 border border-purple-100">
+              <h3 className="text-xl font-bold text-indigo-900 mb-2">What industries do you specialize in?</h3>
+              <p className="text-gray-700">
+                We provide lead generation services across multiple industries including technology, healthcare, finance, manufacturing, and professional services, with specialized expertise in B2B sectors.
+              </p>
+            </div>
+            
+            {/* FAQ Item 3 */}
+            <div className="bg-indigo-50 rounded-xl shadow-sm p-6 border border-purple-100">
+              <h3 className="text-xl font-bold text-indigo-900 mb-2">How quickly can you deliver leads?</h3>
+              <p className="text-gray-700">
+                Turnaround times vary based on project scope and requirements, but we typically begin delivering verified leads within 7-14 days of project kickoff, with ongoing delivery schedules tailored to your needs.
+              </p>
+            </div>
+          </div>
+          
+          <div className="text-center mt-10">
+            <a href="#contact" className="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              Ask Us a Question
+            </a>
+          </div>
+        </div>
+      </section>
+      
+      {/* Contact Section - Clear call to action */}
+      <section className="py-20 bg-indigo-50" id="contact">
         <div className="container mx-auto px-6">
           <SectionHeader
             label="Get Started"
@@ -212,49 +213,6 @@ const HomePage = () => {
             </div>
             
             <ContactForm />
-          </div>
-        </div>
-      </section>
-      
-      {/* FAQ Section - address common questions to reduce friction */}
-      <section className="py-20 bg-indigo-50">
-        <div className="container mx-auto px-6">
-          <SectionHeader
-            label="Common Questions"
-            title="Frequently Asked Questions"
-            description="Get answers to the most common questions about our lead generation services"
-          />
-          
-          <div className="max-w-3xl mx-auto space-y-6 mt-10">
-            {/* FAQ Item 1 */}
-            <div className="bg-white rounded-xl shadow-sm p-6 border border-purple-100">
-              <h3 className="text-xl font-bold text-indigo-900 mb-2">How do you ensure lead quality?</h3>
-              <p className="text-gray-700">
-                We implement a rigorous multi-step verification process including email validation, phone verification, and data enrichment to ensure every lead meets our high-quality standards before delivery.
-              </p>
-            </div>
-            
-            {/* FAQ Item 2 */}
-            <div className="bg-white rounded-xl shadow-sm p-6 border border-purple-100">
-              <h3 className="text-xl font-bold text-indigo-900 mb-2">What industries do you specialize in?</h3>
-              <p className="text-gray-700">
-                We provide lead generation services across multiple industries including technology, healthcare, finance, manufacturing, and professional services, with specialized expertise in B2B sectors.
-              </p>
-            </div>
-            
-            {/* FAQ Item 3 */}
-            <div className="bg-white rounded-xl shadow-sm p-6 border border-purple-100">
-              <h3 className="text-xl font-bold text-indigo-900 mb-2">How quickly can you deliver leads?</h3>
-              <p className="text-gray-700">
-                Turnaround times vary based on project scope and requirements, but we typically begin delivering verified leads within 7-14 days of project kickoff, with ongoing delivery schedules tailored to your needs.
-              </p>
-            </div>
-          </div>
-          
-          <div className="text-center mt-10">
-            <a href="#contact" className="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              Ask Us a Question
-            </a>
           </div>
         </div>
       </section>
