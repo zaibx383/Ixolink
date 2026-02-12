@@ -73,7 +73,7 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <ServiceCard 
               title="B2B Lead Generation"
-              image="https://pearllemonleads.com/wp-content/uploads/2025/08/B2C-Lead-Generation-Services-in-Singapore.webpp"
+              image="https://www.dbswebsite.com/uploads/b2b-lead-generation.jpg"
             />
             <ServiceCard 
               title="B2C Lead Generation"
