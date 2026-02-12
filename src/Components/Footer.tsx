@@ -12,9 +12,10 @@ const Footer = () => {
           <div>
             <Link to="/" className="inline-block mb-6">
               <img
-                src="/logo-footer.jpeg"
+                src="/logo-footer.png"
                 alt="Ixolink Logo"
-                className="h-10 w-auto object-contain"
+                className="h-16 md:h-20 w-auto object-contain"
+
               />
             </Link>
 
