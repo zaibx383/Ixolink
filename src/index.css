@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Client logo marquee – row 1 moves left-to-right (content scrolls right), row 2 right-to-left */
+@keyframes marquee-row1 {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-row2 {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.marquee-track-row1 {
+  animation: marquee-row1 45s linear infinite;
+}
+
+.marquee-track-row2 {
+  animation: marquee-row2 45s linear infinite;
+}
+
+.marquee-paused .marquee-track-row1,
+.marquee-paused .marquee-track-row2 {
+  animation-play-state: paused;
+}

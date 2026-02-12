@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const clientLogosRow1 = [
@@ -53,74 +53,7 @@ function ClientLogo({ name, image }) {
 }
 
 export default function ClientsSection() {
-  const scrollRef1 = useRef(null);
-  const scrollRef2 = useRef(null);
-
-  useEffect(() => {
-    // On mount, scrollRef2 should start at the halfway point
-    function setInitialPositions() {
-      if (scrollRef2.current) {
-        scrollRef2.current.scrollLeft = scrollRef2.current.scrollWidth / 2;
-      }
-    }
-    setInitialPositions();
-
-    let frameId;
-    const speed = 0.5;
-
-    function animate() {
-      if (scrollRef1.current) {
-        scrollRef1.current.scrollLeft += speed;
-        if (
-          scrollRef1.current.scrollLeft >=
-          scrollRef1.current.scrollWidth / 2
-        ) {
-          scrollRef1.current.scrollLeft = 0;
-        }
-      }
-      if (scrollRef2.current) {
-        scrollRef2.current.scrollLeft -= speed;
-        if (scrollRef2.current.scrollLeft <= 0) {
-          scrollRef2.current.scrollLeft =
-            scrollRef2.current.scrollWidth / 2;
-        }
-      }
-      frameId = requestAnimationFrame(animate);
-    }
-    frameId = requestAnimationFrame(animate);
-
-    return () => cancelAnimationFrame(frameId);
-  }, []);
-
-  // Also reset scrollRef2's position when window resizes (to keep it seamless)
-  useEffect(() => {
-    function handleResize() {
-      if (scrollRef2.current) {
-        scrollRef2.current.scrollLeft = scrollRef2.current.scrollWidth / 2;
-      }
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const scroll = (direction) => {
-    const scrollAmount = 220;
-    if (direction === "left") {
-      if (scrollRef1.current) {
-        scrollRef1.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-      }
-      if (scrollRef2.current) {
-        scrollRef2.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      }
-    } else {
-      if (scrollRef1.current) {
-        scrollRef1.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      }
-      if (scrollRef2.current) {
-        scrollRef2.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-      }
-    }
-  };
+  const [marqueePaused, setMarqueePaused] = useState(false);
 
   return (
     <section className="py-8 md:py-14 bg-gray-50 overflow-hidden w-full" style={{ maxWidth: "100vw", position: "relative" }}>
@@ -155,11 +88,14 @@ export default function ClientsSection() {
           </p>
         </motion.div>
 
-        <div className="relative w-full overflow-hidden" style={{ maxWidth: '100vw', clipPath: 'inset(0)' }}>
+        <div
+          className={`relative w-full overflow-hidden ${marqueePaused ? 'marquee-paused' : ''}`}
+          style={{ maxWidth: '100vw', clipPath: 'inset(0)' }}
+        >
           <button
-            onClick={() => scroll('left')}
+            onClick={() => setMarqueePaused((p) => !p)}
             className="hidden md:flex absolute -left-10 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#3876bc] items-center justify-center shadow-md shadow-[#3B7DD8]/20 transition-all duration-300 hover:scale-110 hover:bg-[#1E5092] border border-gray-200"
-            aria-label="Scroll left"
+            aria-label={marqueePaused ? "Play marquee" : "Pause marquee"}
             type="button"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round">
@@ -168,9 +104,9 @@ export default function ClientsSection() {
           </button>
 
           <button
-            onClick={() => scroll('right')}
+            onClick={() => setMarqueePaused((p) => !p)}
             className="hidden md:flex absolute -right-10 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#3876bc] items-center justify-center shadow-md shadow-[#3B7DD8]/20 transition-all duration-300 hover:scale-110 hover:bg-[#1E5092] border border-gray-200"
-            aria-label="Scroll right"
+            aria-label={marqueePaused ? "Play marquee" : "Pause marquee"}
             type="button"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round">
@@ -178,44 +114,32 @@ export default function ClientsSection() {
             </svg>
           </button>
 
-          <div
-            ref={scrollRef1}
-            className="flex gap-2 md:gap-4 overflow-x-hidden scrollbar-hide px-1 md:px-6 py-1 md:py-2 mb-3"
-            style={{
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none',
-              maxWidth: '100%',
-              clipPath: 'inset(0)'
-            }}
-          >
-            {clientLogosRow1Duplicated.map((client, index) => (
-              <ClientLogo
-                key={`row1-${index}`}
-                name={client.name}
-                image={client.image}
-              />
-            ))}
+          {/* Row 1: scrolls left-to-right (track moves left) */}
+          <div className="overflow-hidden px-1 md:px-6 py-1 md:py-2 mb-3">
+            <div className="flex gap-2 md:gap-4 w-max marquee-track-row1">
+              {clientLogosRow1Duplicated.map((client, index) => (
+                <ClientLogo
+                  key={`row1-${index}`}
+                  name={client.name}
+                  image={client.image}
+                />
+              ))}
+            </div>
           </div>
 
           <div className="h-1" />
 
-          <div
-            ref={scrollRef2}
-            className="flex gap-2 md:gap-4 overflow-x-hidden scrollbar-hide px-1 md:px-6 py-1 md:py-2"
-            style={{
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none',
-              maxWidth: '100%',
-              clipPath: 'inset(0)'
-            }}
-          >
-            {clientLogosRow2Duplicated.map((client, index) => (
-              <ClientLogo
-                key={`row2-${index}`}
-                name={client.name}
-                image={client.image}
-              />
-            ))}
+          {/* Row 2: scrolls right-to-left (track moves right) */}
+          <div className="overflow-hidden px-1 md:px-6 py-1 md:py-2">
+            <div className="flex gap-2 md:gap-4 w-max marquee-track-row2">
+              {clientLogosRow2Duplicated.map((client, index) => (
+                <ClientLogo
+                  key={`row2-${index}`}
+                  name={client.name}
+                  image={client.image}
+                />
+              ))}
+            </div>
           </div>
 
           <div className="absolute left-0 top-0 bottom-0 w-6 md:w-12 bg-gradient-to-r from-gray-50 to-transparent pointer-events-none z-10" />
